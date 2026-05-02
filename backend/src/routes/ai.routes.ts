@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 import { aiController } from '../controllers/ai.controller';
 import { upload } from '../middleware/upload.middleware';
 
@@ -23,7 +23,7 @@ router.post('/integration-guidance', aiController.generateIntegrationGuidance);
 router.post('/suggest-improvements', aiController.suggestImprovements);
 
 // Health check
-router.get('/health', (req, res) => {
+router.get('/health', (req: Request, res: Response) => {
     res.json({ status: 'ok', message: 'AI service is running' });
 });
 
